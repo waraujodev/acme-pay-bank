@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq-acmepay
+    volumes:
+      - "./data/lib/rabbitmq:/var/lib/rabbitmq"
+      - "./data/log/rabbitmq:/var/log/rabbitmq"
+    ports:
+      - 5672:5672
+      - 15672:15672
+networks:
+  rabbitmq:
+    driver: bridge

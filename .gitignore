@@ -1,0 +1,5 @@
+/target
+.idea
+
+/local_db/data
+/local_rabbitmq/data

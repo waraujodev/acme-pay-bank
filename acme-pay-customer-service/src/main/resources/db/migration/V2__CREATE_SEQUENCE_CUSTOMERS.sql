@@ -1,0 +1,1 @@
+create sequence customer_service.customer_seq;

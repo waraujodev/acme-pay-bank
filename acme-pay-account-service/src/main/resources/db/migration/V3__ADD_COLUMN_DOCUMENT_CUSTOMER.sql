@@ -1,0 +1,1 @@
+ALTER TABLE account_service.accounts ADD COLUMN document VARCHAR (20);
