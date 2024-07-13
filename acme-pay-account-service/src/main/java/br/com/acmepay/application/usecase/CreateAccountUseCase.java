@@ -1,5 +1,6 @@
 package br.com.acmepay.application.usecase;
 
+import br.com.acmepay.adapters.output.kafka.service.SendToTransactionsTopic;
 import br.com.acmepay.application.domain.models.AccountDomain;
 import br.com.acmepay.application.ports.in.ICreateAccountUseCase;
 import br.com.acmepay.application.ports.out.ICheckDocumentCustomer;
@@ -13,9 +14,10 @@ public class CreateAccountUseCase implements ICreateAccountUseCase {
 
     private final ICreateAccount createAccount;
     private final ICheckDocumentCustomer checkDocumentCustomer;
+    private final SendToTransactionsTopic sendToTransactionsTopic;
 
     @Override
     public void execute(AccountDomain domain) {
-        domain.create(createAccount, checkDocumentCustomer);
+        domain.create(createAccount, checkDocumentCustomer, sendToTransactionsTopic);
     }
 }
