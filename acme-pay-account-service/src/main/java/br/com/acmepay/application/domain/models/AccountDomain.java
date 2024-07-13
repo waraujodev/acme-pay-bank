@@ -31,7 +31,7 @@ public class AccountDomain {
         var doc = DocumentRequest.builder().document(this.customerDocument).build();
         checkDocumentCustomer.execute(doc);
         createAccount.execute(this);
-        deposit(BigDecimal.valueOf(100), sendToTransactionTopc);
+        deposit(new BigDecimal("100.00"), sendToTransactionTopc);
     }
 
     public void deposit(BigDecimal amount, ISendToTransactionTopc sendToTransactionTopc){
