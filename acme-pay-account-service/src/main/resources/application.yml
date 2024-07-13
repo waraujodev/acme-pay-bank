@@ -16,3 +16,5 @@ spring:
     baseline-on-migrate: true
     enabled: true
     default-schema: account_service
+  kafka:
+    bootstrap-servers: localhost:9092
