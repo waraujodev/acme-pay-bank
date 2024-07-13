@@ -1,7 +1,7 @@
 package br.com.acmepay.application.ports.out;
 
-import br.com.acmepay.adapters.input.api.request.DocumentRequest;
+import br.com.acmepay.application.requests.TransactionRequest;
 
 public interface ISendToTransactionTopc {
-    void execute(String request);
+    void execute(TransactionRequest request);
 }

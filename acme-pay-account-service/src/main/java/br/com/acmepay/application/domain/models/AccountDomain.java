@@ -5,6 +5,7 @@ import br.com.acmepay.application.domain.exception.BalanceToWithdrawException;
 import br.com.acmepay.application.ports.out.ICheckDocumentCustomer;
 import br.com.acmepay.application.ports.out.ICreateAccount;
 import br.com.acmepay.application.ports.out.ISendToTransactionTopc;
+import br.com.acmepay.application.requests.TransactionRequest;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -30,11 +31,18 @@ public class AccountDomain {
         var doc = DocumentRequest.builder().document(this.customerDocument).build();
         checkDocumentCustomer.execute(doc);
         createAccount.execute(this);
-        sendToTransactionTopc.execute(doc.getDocument());
+        deposit(BigDecimal.valueOf(100), sendToTransactionTopc);
     }
 
-    public void deposit(BigDecimal amount){
-        this.balance.add(amount);
+    public void deposit(BigDecimal amount, ISendToTransactionTopc sendToTransactionTopc){
+        this.balance = this.balance.add(amount);
+        TransactionRequest transactionRequest = TransactionRequest.builder()
+                .originAccountAgency(this.agency)
+                .destinationAccountNumber(this.number)
+                .balance(this.balance)
+                .instantTransaction(this.created_at)
+                .build();
+        sendToTransactionTopc.execute(transactionRequest);
     }
 
     public void withdraw(BigDecimal amount) throws BalanceToWithdrawException {

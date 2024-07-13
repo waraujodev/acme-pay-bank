@@ -2,6 +2,7 @@ package br.com.acmepay.adapters.output.kafka.service;
 
 import br.com.acmepay.adapters.output.kafka.producer.MessageProducer;
 import br.com.acmepay.application.ports.out.ISendToTransactionTopc;
+import br.com.acmepay.application.requests.TransactionRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class SendToTransactionsTopicImpl implements ISendToTransactionTopc {
     private final MessageProducer messageProducer;
 
     @Override
-    public void execute(String message) {
-        messageProducer.send(TOPIC_TRANSACTIONS, message);
+    public void execute(TransactionRequest transactionRequest) {
+        messageProducer.send(TOPIC_TRANSACTIONS, transactionRequest);
     }
 }
