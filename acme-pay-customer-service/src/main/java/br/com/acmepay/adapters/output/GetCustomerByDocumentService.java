@@ -23,6 +23,7 @@ public class GetCustomerByDocumentService implements IGetCustomerDomainByDocumen
                 .email(custommerEntity.getEmail())
                 .phone(custommerEntity.getPhone())
                 .document(custommerEntity.getDocument())
+                .salary(custommerEntity.getSalary())
                 .build();
     }
 }

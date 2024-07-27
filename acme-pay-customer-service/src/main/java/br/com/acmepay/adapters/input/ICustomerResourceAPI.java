@@ -14,6 +14,7 @@ public interface ICustomerResourceAPI {
     CustomerResponse create(@RequestBody CustomerRequest request);
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping
-    CustomerSalaryResponse getSalary(@RequestBody String document);
+    @PostMapping
+    @RequestMapping("/salary/{document}")
+    CustomerSalaryResponse getSalary(@PathVariable("document") String document);
 }
