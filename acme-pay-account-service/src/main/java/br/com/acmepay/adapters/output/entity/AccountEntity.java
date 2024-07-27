@@ -29,6 +29,8 @@ public class AccountEntity {
     private Integer agency;
     private BigDecimal balance;
     private Boolean close;
+    @Column(name = "LIMIT_ACCOUNT")
+    private BigDecimal limit;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 }

@@ -19,6 +19,7 @@ public class CreateAccountService implements ICreateAccount {
                 .agency(accountDomain.getAgency())
                 .number(accountDomain.getNumber())
                 .balance(accountDomain.getBalance())
+                .limit(accountDomain.getLimit())
                 .created_at(accountDomain.getCreated_at())
                 .updated_at(accountDomain.getUpdated_at())
                 .close(accountDomain.getClose())

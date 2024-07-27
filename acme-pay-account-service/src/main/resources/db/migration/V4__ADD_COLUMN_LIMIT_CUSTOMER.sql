@@ -1,0 +1,2 @@
+ALTER TABLE account_service.accounts
+    ADD COLUMN LIMIT_ACCOUNT NUMERIC(15, 2);
