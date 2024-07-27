@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Builder
@@ -27,6 +28,7 @@ public class CustommerEntity {
     private String email;
     private String phone;
     private String document;
+    private BigDecimal salary;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 }

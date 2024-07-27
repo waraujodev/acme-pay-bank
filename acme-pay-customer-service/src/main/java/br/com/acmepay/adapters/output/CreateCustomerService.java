@@ -20,6 +20,7 @@ public class CreateCustomerService implements ICreateCustomer {
                 .email(customerDomain.getEmail())
                 .phone(customerDomain.getPhone())
                 .document(customerDomain.getDocument())
+                .salary(customerDomain.getSalary())
                 .created_at(customerDomain.getCreated_at())
                 .updated_at(customerDomain.getUpdated_at())
                 .build();

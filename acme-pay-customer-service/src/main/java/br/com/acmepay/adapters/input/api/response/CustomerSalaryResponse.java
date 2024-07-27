@@ -1,4 +1,4 @@
-package br.com.acmepay.adapters.input.api.request;
+package br.com.acmepay.adapters.input.api.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,11 +11,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerRequest {
-
-    private String name;
-    private String email;
-    private String phone;
-    private String document;
+public class CustomerSalaryResponse {
     private BigDecimal salary;
 }
