@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: acme-pay-load-balancer
+  cloud:
+    gateway:
+      routes:
+        - id: customer_service
+          uri: lb://customer-service
+          predicates:
+            - Path=/customers
+            - Method=POST
+    loadbalancer:
+      retry:
+        enabled: true
+
+
+server:
+  port: 8090
